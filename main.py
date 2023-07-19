@@ -1,9 +1,9 @@
 from datetime import datetime, timedelta
 
 users = [
-    {"name": "Bill", "birthday": "22 July 1992"},
+    {"name": "Bill", "birthday": "15 July 1992"},
     {"name": "Jill", "birthday": "20 July 1994"},
-    {"name": "Jan", "birthday": "22 July 1993"},
+    {"name": "Jan", "birthday": "16 July 1993"},
     {"name": "Sara", "birthday": "19 July 1985"},
     {"name": "Kim", "birthday": "19 July 1995"},
 ]
@@ -43,12 +43,10 @@ def get_birthdays_per_week(users):
             if day in (5, 6):
                 weekday['Next_Monday'] += i['name']
                 weekday['Next_Monday'] += ', '
-
+        elif birthday_date.date() <= start and start.weekday() == 0:
+            weekday['Next_Monday'] += i['name']
+            weekday['Next_Monday'] += ', '
+            
     for key, value in weekday.items():
-        count = 0
         if len(value) > 0:
             print(key + ': ' + value[:-2])
-        else:
-            count += 1
-    if count > 0:
-        print("No one has a birthday this week")
