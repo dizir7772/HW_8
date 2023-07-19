@@ -4,8 +4,8 @@ users = [
     {"name": "Bill", "birthday": "15 July 1992"},
     {"name": "Jill", "birthday": "20 July 1994"},
     {"name": "Jan", "birthday": "16 July 1993"},
-    {"name": "Sara", "birthday": "19 July 1985"},
-    {"name": "Kim", "birthday": "19 July 1995"},
+    {"name": "Sara", "birthday": "23 July 1985"},
+    {"name": "Kim", "birthday": "22 July 1995"},
 ]
 
 
@@ -44,8 +44,8 @@ def get_birthdays_per_week(users):
                 weekday['Next_Monday'] += i['name']
                 weekday['Next_Monday'] += ', '
         elif birthday_date.date() <= start and start.weekday() == 0:
-            weekday['Next_Monday'] += i['name']
-            weekday['Next_Monday'] += ', '
+            weekday['Monday'] += i['name']
+            weekday['Monday'] += ', '
             
     for key, value in weekday.items():
         if len(value) > 0:
